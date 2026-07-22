@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Ilustrație simbolică: două mâini care susțin o inimă">
   <circle cx="100" cy="100" r="92" fill="#ffffff"/>
-  <path d="M60 130 C40 115 40 90 60 78 C72 70 88 74 96 88 C104 74 120 70 132 78 C152 90 152 115 132 130 L100 156 Z" fill="#e8734a" opacity="0.9"/>
-  <path d="M34 140 C50 118 50 96 34 80" fill="none" stroke="#0e6e6a" stroke-width="7" stroke-linecap="round"/>
-  <path d="M166 140 C150 118 150 96 166 80" fill="none" stroke="#0e6e6a" stroke-width="7" stroke-linecap="round"/>
-  <path d="M34 80 C44 68 60 64 72 68" fill="none" stroke="#0e6e6a" stroke-width="7" stroke-linecap="round"/>
-  <path d="M166 80 C156 68 140 64 128 68" fill="none" stroke="#0e6e6a" stroke-width="7" stroke-linecap="round"/>
+  <path d="M60 130 C40 115 40 90 60 78 C72 70 88 74 96 88 C104 74 120 70 132 78 C152 90 152 115 132 130 L100 156 Z" fill="#7d63a8" opacity="0.9"/>
+  <path d="M34 140 C50 118 50 96 34 80" fill="none" stroke="#664f95" stroke-width="7" stroke-linecap="round"/>
+  <path d="M166 140 C150 118 150 96 166 80" fill="none" stroke="#664f95" stroke-width="7" stroke-linecap="round"/>
+  <path d="M34 80 C44 68 60 64 72 68" fill="none" stroke="#664f95" stroke-width="7" stroke-linecap="round"/>
+  <path d="M166 80 C156 68 140 64 128 68" fill="none" stroke="#664f95" stroke-width="7" stroke-linecap="round"/>
 </svg>

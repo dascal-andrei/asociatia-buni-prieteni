@@ -1,25 +1,25 @@
 /* Asociația Buni Prieteni — stylesheet
-   Palette + spacing are placeholders — swap tokens below once real brand
-   colors/logo are available (see README "De completat" section). */
+   Palette is sampled directly from assets/img/logo.png (the association's
+   two-tone purple wordmark + awareness ribbon). */
 
 :root {
-  --color-primary: #0e6e6a;
-  --color-primary-dark: #0a4f4c;
-  --color-primary-light: #e3f1f0;
-  --color-accent: #e8734a;
-  --color-accent-dark: #c85a34;
-  --color-bg: #fbf7f2;
-  --color-bg-alt: #f1e9de;
-  --color-text: #2b2b2b;
-  --color-text-muted: #5b5b5b;
+  --color-primary: #664f95;
+  --color-primary-dark: #4a3971;
+  --color-primary-light: #efebf8;
+  --color-accent: #7d63a8;
+  --color-accent-dark: #654e8c;
+  --color-bg: #faf8fc;
+  --color-bg-alt: #f0eaf7;
+  --color-text: #2a2333;
+  --color-text-muted: #5c5468;
   --color-white: #ffffff;
-  --color-border: #e4dccd;
+  --color-border: #e2d9ed;
 
   --font-heading: "Poppins", "Segoe UI", system-ui, sans-serif;
   --font-body: "Segoe UI", system-ui, -apple-system, sans-serif;
 
   --radius: 14px;
-  --shadow: 0 8px 24px rgba(20, 40, 40, 0.08);
+  --shadow: 0 8px 24px rgba(42, 30, 60, 0.1);
   --max-width: 1120px;
 }
 
@@ -158,22 +158,16 @@ p {
 }
 
 .brand img {
-  height: 42px;
+  height: 46px;
   width: auto;
 }
 
-.brand-text {
+.brand-tagline {
   font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.1;
-  font-size: 1.05rem;
-}
-
-.brand-text span {
-  display: block;
-  font-weight: 400;
-  font-size: 0.75rem;
+  font-weight: 600;
+  font-size: 0.8rem;
   color: var(--color-text-muted);
+  white-space: nowrap;
 }
 
 .main-nav {
@@ -515,7 +509,7 @@ section {
   font-size: 0.78rem;
   font-weight: 700;
   color: var(--color-accent-dark);
-  background: #fdece3;
+  background: #f1e9f8;
   border-radius: 999px;
   padding: 0.15rem 0.65rem;
   margin-left: 0.4rem;
@@ -619,12 +613,14 @@ section {
   margin-bottom: 1rem;
 }
 
-.site-footer .brand-text {
-  color: #fff;
+.site-footer .brand-tagline {
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.site-footer .brand-text span {
-  color: rgba(255, 255, 255, 0.7);
+.site-footer .brand img {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 4px 8px;
 }
 
 .site-footer ul {

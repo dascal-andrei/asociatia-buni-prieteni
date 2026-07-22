@@ -40,9 +40,11 @@ paginile HTML pentru:
 - **Despre noi** (`despre.html`): povestea reală a asociației, echipă.
 - **Programe** (`programe.html`): confirmarea programelor active — lista
   actuală e orientativă, bazată pe tonul altor asociații similare.
-- **Branding**: `assets/img/logo.svg` și paleta de culori din
-  `assets/css/style.css` (`--color-primary`, `--color-accent`) sunt
-  placeholder — se pot înlocui cu logo-ul și culorile reale ale asociației.
+
+Logo-ul (`assets/img/logo.png`, cu `assets/img/favicon.png` derivat din
+panglica logo-ului) și paleta de culori din `assets/css/style.css`
+(`--color-primary` #664f95, `--color-accent` #7d63a8 — mov, extrase din
+logo) sunt deja cele reale ale asociației.
 
 ## Publicare cu GitHub Pages
 
