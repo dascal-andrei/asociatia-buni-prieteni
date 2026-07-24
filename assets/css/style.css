@@ -106,7 +106,7 @@ p {
 .btn-primary {
   background: var(--color-accent);
   color: #fff;
-  box-shadow: 0 6px 16px rgba(232, 115, 74, 0.35);
+  box-shadow: 0 6px 16px rgba(240, 221, 237, 0.55);
 }
 
 .btn-primary:hover {
@@ -148,7 +148,7 @@ p {
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
   max-width: none;
-  padding-left: 1.25rem;
+  padding-left: 1cm;
 }
 
 .brand {
@@ -287,7 +287,7 @@ p {
   width: 480px;
   height: 480px;
   border-radius: 50%;
-  background: rgba(232, 115, 74, 0.25);
+  background: rgba(240, 221, 237, 0.4);
 }
 
 .hero .container {
@@ -577,6 +577,16 @@ section {
   .contact-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.contact-grid-single {
+  grid-template-columns: 1fr;
+}
+
+.contact-grid-single .contact-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0 2.5rem;
 }
 
 .contact-list {
