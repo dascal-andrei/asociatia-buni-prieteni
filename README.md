@@ -8,7 +8,7 @@ Site static (HTML/CSS/JS, fără build step) pentru Asociația Buni Prieteni —
 ```
 index.html         Acasă
 despre.html         Despre noi
-programe.html       Programe
+proiecte.html       Proiecte
 implica-te.html      Implică-te / Donează
 contact.html         Contact
 404.html            Pagină de eroare (GitHub Pages)
@@ -38,7 +38,7 @@ paginile HTML pentru:
 - **Implică-te** (`implica-te.html`): IBAN, bancă, CIF/CUI, date pentru
   Formularul 230.
 - **Despre noi** (`despre.html`): povestea reală a asociației, echipă.
-- **Programe** (`programe.html`): confirmarea programelor active — lista
+- **Proiecte** (`proiecte.html`): confirmarea proiectelor active — lista
   actuală e orientativă, bazată pe tonul altor asociații similare.
 
 Logo-ul (`assets/img/logo.png`, cu `assets/img/favicon.png` derivat din
