@@ -426,6 +426,17 @@ section {
   height: 70%;
 }
 
+/* Facebook post embed */
+.fb-embed {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.fb-embed iframe {
+  max-width: 100%;
+}
+
 /* Values list */
 .values-grid {
   display: grid;
