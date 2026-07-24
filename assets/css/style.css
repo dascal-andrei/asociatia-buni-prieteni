@@ -147,6 +147,7 @@ p {
   justify-content: space-between;
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
+  padding-left: 0.5rem;
 }
 
 .brand {
@@ -165,7 +166,7 @@ p {
 .brand-tagline {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 1.05rem;
   color: var(--color-text-muted);
   white-space: nowrap;
 }
@@ -325,8 +326,29 @@ p {
   padding: 3.5rem 0;
 }
 
+/* Inner-page heroes align their content with the rest of the page (flush left)
+   instead of the centered narrow box used by the home hero. */
+.page-hero .container {
+  max-width: var(--max-width);
+}
+
+.page-hero .eyebrow {
+  color: #fff;
+  font-size: 1.15rem;
+}
+
 .page-hero p.lead {
   font-size: 1.05rem;
+}
+
+/* Smaller subtitle stacked under a hero heading (e.g. Contact page) */
+.hero-subtitle {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 1.5vw + 0.8rem, 1.7rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 0.35rem;
 }
 
 /* Sections */
@@ -607,7 +629,7 @@ section {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 2.5rem;
   margin-bottom: 2.5rem;
 }
@@ -663,6 +685,50 @@ section {
   flex-wrap: wrap;
   gap: 0.5rem;
   color: rgba(255, 255, 255, 0.6);
+}
+
+/* Floating WhatsApp button */
+.whatsapp-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 200;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #25d366;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+.whatsapp-float svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    right: 1rem;
+    bottom: 1rem;
+    padding: 0.7rem;
+  }
+
+  .whatsapp-float span {
+    display: none;
+  }
 }
 
 /* Utility */
