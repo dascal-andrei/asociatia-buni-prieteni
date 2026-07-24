@@ -5,7 +5,7 @@
 :root {
   --color-primary: #664f95;
   --color-primary-dark: #4a3971;
-  --color-primary-light: #efebf8;
+  --color-primary-light: #f0dded;
   --color-accent: #7d63a8;
   --color-accent-dark: #654e8c;
   --color-bg: #faf8fc;
@@ -147,7 +147,8 @@ p {
   justify-content: space-between;
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
-  padding-left: 0.5rem;
+  max-width: none;
+  padding-left: 1.25rem;
 }
 
 .brand {
@@ -292,15 +293,15 @@ p {
 .hero .container {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: var(--max-width);
 }
 
 .hero .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--color-accent);
+  color: #f0dded;
   margin-bottom: 1rem;
   display: inline-block;
 }
@@ -371,10 +372,14 @@ section {
   text-align: left;
 }
 
+.section-header p {
+  font-size: 1.15rem;
+}
+
 .eyebrow-dark {
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--color-accent-dark);
 }
@@ -384,6 +389,18 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.75rem;
+}
+
+/* Centered variant: lets a lone card on the last row sit in the middle */
+.card-grid.is-centered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-grid.is-centered .card {
+  flex: 1 1 250px;
+  max-width: 320px;
 }
 
 .card {
@@ -644,6 +661,22 @@ section {
   color: #fff;
   font-size: 1rem;
   margin-bottom: 1rem;
+}
+
+.site-footer .footer-grid p {
+  font-size: 0.82rem;
+}
+
+.footer-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.footer-contact svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .site-footer .brand-tagline {
