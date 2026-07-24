@@ -148,7 +148,7 @@ p {
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
   max-width: none;
-  padding-left: 1cm;
+  padding-left: 2.5cm;
 }
 
 .brand {
@@ -287,13 +287,14 @@ p {
   width: 480px;
   height: 480px;
   border-radius: 50%;
-  background: rgba(240, 221, 237, 0.4);
+  background: rgba(94, 52, 88, 0.4);
 }
 
 .hero .container {
   position: relative;
   z-index: 1;
   max-width: var(--max-width);
+  padding-left: 0.5rem;
 }
 
 .hero .eyebrow {
