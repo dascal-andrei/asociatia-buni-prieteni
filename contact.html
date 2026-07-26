@@ -47,7 +47,7 @@
 
     <section>
       <div class="container">
-        <div class="contact-grid contact-grid-single">
+        <div class="contact-grid">
           <div>
             <h2>Date de contact</h2>
             <ul class="contact-list">
@@ -88,6 +88,48 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
               </a>
             </div>
+          </div>
+
+          <div>
+            <h2>Trimite-ne un mesaj</h2>
+            <!-- Formular vizual, nefuncțional deocamdată — de conectat la un serviciu de trimitere (ex. FormSubmit.co) sau alt backend -->
+            <form class="contact-form" onsubmit="event.preventDefault();">
+              <div class="form-group">
+                <label for="cf-nume">Nume</label>
+                <input type="text" id="cf-nume" name="nume" required />
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="cf-telefon">Telefon (opțional)</label>
+                <input type="tel" id="cf-telefon" name="telefon" />
+              </div>
+              <div class="form-group">
+                <label for="cf-motiv">Motivul contactării</label>
+                <select id="cf-motiv" name="motiv">
+                  <option value="sprijin">Vreau sprijin pentru mine sau un apropiat</option>
+                  <option value="donatie">Vreau să fac o donație</option>
+                  <option value="voluntariat">Vreau să devin voluntar</option>
+                  <option value="parteneriat">Parteneriat / colaborare</option>
+                  <option value="altceva">Altceva</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cf-mesaj">Mesaj</label>
+                <textarea id="cf-mesaj" name="mesaj" required></textarea>
+              </div>
+              <label class="form-checkbox">
+                <input type="checkbox" required />
+                Sunt de acord ca datele completate mai sus să fie folosite pentru a răspunde acestei solicitări.
+              </label>
+              <button type="submit" class="btn btn-primary">Trimite mesajul</button>
+              <p style="font-size:0.85rem; color:var(--color-text-muted); margin:0;">
+                Formularul este în lucru. <span class="placeholder-note">de completat</span>
+                Până este conectat, te rugăm să ne scrii direct pe email, telefon sau rețelele sociale.
+              </p>
+            </form>
           </div>
         </div>
       </div>
