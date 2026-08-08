@@ -1000,14 +1000,13 @@ section {
   padding: 1.1rem 0;
 }
 
-.ticker-track {
+.ticker-rail {
   display: flex;
   width: max-content;
-  white-space: nowrap;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .ticker-track {
+  .ticker-rail {
     animation: tickerScroll 28s linear infinite;
   }
 }
@@ -1015,6 +1014,14 @@ section {
 @keyframes tickerScroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 3rem;
+  padding-right: 3rem;
+  white-space: nowrap;
 }
 
 .ticker-item {
@@ -1025,7 +1032,6 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  margin-right: 3rem;
 }
 
 .ticker-item::before {
