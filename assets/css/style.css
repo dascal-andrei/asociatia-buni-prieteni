@@ -283,16 +283,20 @@ p {
   isolation: isolate;
 }
 
-/* Organic wave divider at the base of the hero, blending into the next section */
+/* Organic wave divider at the base of the hero, blending into the next section.
+   An SVG stretched with background-size renders the same proportional curve
+   on every page/width, instead of a border-radius hack whose shape shifts
+   with the element's pixel width. */
 .hero::after {
   content: "";
   position: absolute;
-  left: -8%;
-  right: -8%;
+  left: 0;
+  right: 0;
   bottom: -1px;
   height: 70px;
-  background: var(--color-bg);
-  border-radius: 55% 45% 0 0 / 100% 100% 0 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,70 C200,20 400,110 700,60 C900,25 1050,90 1200,50 L1200,120 L0,120 Z' fill='%23faf8fc'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 .hero .container {
