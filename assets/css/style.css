@@ -306,26 +306,6 @@ p {
   background: rgba(255, 255, 255, 0.07);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .hero::after {
-    animation: floatBlobA 12s ease-in-out infinite alternate;
-  }
-
-  .hero::before {
-    animation: floatBlobB 14s ease-in-out infinite alternate;
-  }
-}
-
-@keyframes floatBlobA {
-  from { transform: translate(0, 0) scale(1); }
-  to { transform: translate(-18px, -26px) scale(1.06); }
-}
-
-@keyframes floatBlobB {
-  from { transform: translate(0, 0) scale(1); }
-  to { transform: translate(20px, 16px) scale(1.08); }
-}
-
 .hero .container {
   position: relative;
   z-index: 1;
@@ -1034,17 +1014,12 @@ section {
 .ticker-track {
   display: flex;
   width: max-content;
-  gap: 3rem;
   white-space: nowrap;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .ticker-track {
     animation: tickerScroll 28s linear infinite;
-  }
-
-  .impact-ticker:hover .ticker-track {
-    animation-play-state: paused;
   }
 }
 
@@ -1061,6 +1036,7 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
+  margin-right: 3rem;
 }
 
 .ticker-item::before {
