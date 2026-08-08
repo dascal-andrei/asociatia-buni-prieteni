@@ -275,6 +275,8 @@ p {
 
 /* Hero */
 .hero {
+  --mx: 0;
+  --my: 0;
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: #fff;
   padding: 5rem 0 6rem;
@@ -283,15 +285,49 @@ p {
   isolation: isolate;
 }
 
-.hero::after {
+.hero::after,
+.hero::before {
   content: "";
   position: absolute;
+  border-radius: 50%;
+  translate: calc(var(--mx) * 22px) calc(var(--my) * 22px);
+}
+
+.hero::after {
   right: -10%;
   bottom: -30%;
   width: 480px;
   height: 480px;
-  border-radius: 50%;
   background: rgba(94, 52, 88, 0.4);
+}
+
+.hero::before {
+  left: -8%;
+  top: -22%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.07);
+  translate: calc(var(--mx) * -16px) calc(var(--my) * -16px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero::after {
+    animation: floatBlobA 12s ease-in-out infinite alternate;
+  }
+
+  .hero::before {
+    animation: floatBlobB 14s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes floatBlobA {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(-18px, -26px) scale(1.06); }
+}
+
+@keyframes floatBlobB {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(20px, 16px) scale(1.08); }
 }
 
 .hero .container {
@@ -847,4 +883,209 @@ section {
 
 .mt-lg {
   margin-top: 3rem;
+}
+
+/* ===== Homepage — dynamic sections ===== */
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stats band */
+.stats-band {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat-item p {
+  margin: 0.3rem 0 0;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 3vw + 1rem, 3rem);
+  color: var(--color-accent-dark);
+}
+
+/* Mission split */
+.mission-split {
+  align-items: center;
+}
+
+.mission-split .section-header {
+  margin: 0;
+  text-align: left;
+}
+
+/* Bento grid for "Cum ajutăm" */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 1.75rem;
+}
+
+.bento-grid .card:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.bento-grid .card:nth-child(2) {
+  grid-column: span 2;
+}
+
+.bento-grid .card:nth-child(3) {
+  grid-column: span 2;
+}
+
+.bento-grid .card:nth-child(4) {
+  grid-column: span 4;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.bento-grid .card:nth-child(4) .icon {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bento-grid .card:nth-child(1) {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  .bento-grid .card:nth-child(2),
+  .bento-grid .card:nth-child(3) {
+    grid-column: span 1;
+  }
+
+  .bento-grid .card:nth-child(4) {
+    grid-column: span 2;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-grid .card:nth-child(1),
+  .bento-grid .card:nth-child(2),
+  .bento-grid .card:nth-child(3),
+  .bento-grid .card:nth-child(4) {
+    grid-column: span 1;
+  }
+}
+
+/* Card hover micro-interactions (also applies to existing card usage sitewide) */
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(42, 30, 60, 0.16);
+  }
+
+  .card .icon {
+    transition: transform 0.25s ease;
+  }
+
+  .card:hover .icon {
+    transform: scale(1.12) rotate(-6deg);
+  }
+}
+
+/* Impact ticker */
+.impact-ticker {
+  background: var(--color-primary-dark);
+  overflow: hidden;
+  padding: 1.1rem 0;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  gap: 3rem;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ticker-track {
+    animation: tickerScroll 28s linear infinite;
+  }
+
+  .impact-ticker:hover .ticker-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.ticker-item {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ticker-item::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* Diagonal divider above the CTA banner */
+.cta-banner.has-diagonal {
+  clip-path: polygon(0 3.5rem, 100% 0, 100% 100%, 0 100%);
+  margin-top: -3.5rem;
+  padding-top: 6.5rem;
+}
+
+@media (max-width: 600px) {
+  .cta-banner.has-diagonal {
+    clip-path: polygon(0 1.75rem, 100% 0, 100% 100%, 0 100%);
+    margin-top: -1.75rem;
+    padding-top: 5rem;
+  }
 }

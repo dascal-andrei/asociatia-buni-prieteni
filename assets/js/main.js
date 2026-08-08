@@ -15,4 +15,92 @@ document.addEventListener("DOMContentLoaded", function () {
       toggle.setAttribute("aria-expanded", "false");
     });
   });
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Scroll reveal for .reveal elements, with optional stagger via [data-reveal-delay]
+  var revealEls = document.querySelectorAll(".reveal");
+  if (revealEls.length) {
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      revealEls.forEach(function (el) {
+        el.classList.add("is-visible");
+      });
+    } else {
+      var revealObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var delay = entry.target.getAttribute("data-reveal-delay");
+            if (delay) {
+              entry.target.style.transitionDelay = delay + "ms";
+            }
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.15 }
+      );
+      revealEls.forEach(function (el) {
+        revealObserver.observe(el);
+      });
+    }
+  }
+
+  // Animated count-up for .stat-number[data-count]
+  var statEls = document.querySelectorAll(".stat-number[data-count]");
+  if (statEls.length) {
+    var animateCount = function (el) {
+      var target = parseInt(el.getAttribute("data-count"), 10);
+      if (isNaN(target)) return;
+      if (reduceMotion) {
+        el.textContent = target;
+        return;
+      }
+      var duration = 1200;
+      var start = null;
+      var step = function (timestamp) {
+        if (start === null) start = timestamp;
+        var progress = Math.min((timestamp - start) / duration, 1);
+        el.textContent = Math.round(progress * target);
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      statEls.forEach(animateCount);
+    } else {
+      var statObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            animateCount(entry.target);
+            statObserver.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.5 }
+      );
+      statEls.forEach(function (el) {
+        statObserver.observe(el);
+      });
+    }
+  }
+
+  // Cursor parallax for hero decorative shapes
+  var hero = document.querySelector(".hero");
+  if (hero && !reduceMotion && window.matchMedia("(pointer: fine)").matches) {
+    hero.addEventListener("mousemove", function (event) {
+      var rect = hero.getBoundingClientRect();
+      var mx = (event.clientX - rect.left) / rect.width - 0.5;
+      var my = (event.clientY - rect.top) / rect.height - 0.5;
+      hero.style.setProperty("--mx", mx.toFixed(3));
+      hero.style.setProperty("--my", my.toFixed(3));
+    });
+    hero.addEventListener("mouseleave", function () {
+      hero.style.setProperty("--mx", 0);
+      hero.style.setProperty("--my", 0);
+    });
+  }
 });
