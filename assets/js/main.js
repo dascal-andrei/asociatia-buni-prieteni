@@ -87,20 +87,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   }
-
-  // Cursor parallax for hero decorative shapes
-  var hero = document.querySelector(".hero");
-  if (hero && !reduceMotion && window.matchMedia("(pointer: fine)").matches) {
-    hero.addEventListener("mousemove", function (event) {
-      var rect = hero.getBoundingClientRect();
-      var mx = (event.clientX - rect.left) / rect.width - 0.5;
-      var my = (event.clientY - rect.top) / rect.height - 0.5;
-      hero.style.setProperty("--mx", mx.toFixed(3));
-      hero.style.setProperty("--my", my.toFixed(3));
-    });
-    hero.addEventListener("mouseleave", function () {
-      hero.style.setProperty("--mx", 0);
-      hero.style.setProperty("--my", 0);
-    });
-  }
 });
